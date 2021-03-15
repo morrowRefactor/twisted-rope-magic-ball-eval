@@ -1,0 +1,119 @@
+.InputForm_formField > label {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.InputForm_formField > input {
+    width: 90%;
+    padding: 10px 5px 10px 5px;
+    margin-bottom: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#InputForm_buttons {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#InputForm_buttons > button {
+    width: 60%;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto auto 20px auto;
+    border: solid 1px #585858;
+    border-radius: 3px;
+}
+
+#InputForm_buttons > button:hover {
+    cursor: pointer;
+    background-color: #25b8f2;
+    color: #fff;
+    box-shadow: 4px 4px 2px -2px #585858;
+}
+
+#loadingIcon {
+    display: inline-block;
+    margin: 10px auto 10px auto;
+}
+
+#queryResult {
+    color: #25b8f2;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.errorText {
+    color: #f25f25;
+    font-size: 18px;
+    margin: 0px auto 30px auto;
+}
+
+#InputForm_history {
+    text-align: left;
+    width: 60%;
+    padding: 10px 20px 10px 20px;
+    margin: auto auto 50px auto;
+    border: 1px solid #585858;
+    border-radius: 5px;
+}
+
+.queryQuestion {
+    margin-bottom: 5px;
+}
+
+.queryAnswer {
+    margin-top: 0px;
+}
+
+.queryHeader {
+    font-weight: bold;
+    color: #585858;
+}
+
+#clearHistory {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+#clearHistoryButton {
+    border: none;
+    text-decoration: underline;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+#clearHistoryButton:hover {
+    cursor: pointer;
+}
+
+#hidden {
+    display: none;
+}
+
+/* tablet adjustments */ 
+@media (min-width: 768px) {
+    .InputForm_formField > input {
+        width: 70%;
+    }
+
+    #InputForm_buttons > button {
+        width: 40%;
+    }
+}
+
+/* desktop adjustments */ 
+@media (min-width: 1200px) {
+    .InputForm_formField > input {
+        width: 50%;
+    }
+
+    #InputForm_buttons > button {
+        width: 20%;
+    }
+}

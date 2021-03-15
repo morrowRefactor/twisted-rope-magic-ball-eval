@@ -123,14 +123,14 @@ class InputForm extends Component {
   renderHistory = () => {
       const history = this.state.history.map(query => 
           <div className='queryHistory' key={this.state.history.indexOf(query)}>
-              <p className='queryQuestion'>{query.question}</p>
-              <p className='queryAnswer'>{query.answer}</p>
+              <p className='queryQuestion'><span className='queryHeader'>Your question:</span> {query.question}</p>
+              <p className='queryAnswer'><span className='queryHeader'>8-Ball wisdom:</span> {query.answer}</p>
           </div>
       );
 
       if(this.state.history.length < 1) {
         return (
-            <p className='errorText'>No history yet.  Submit a question to the Great 8-Ball above.</p>
+            <p className='errorText'>No history. Submit a question to the Great 8-Ball above.</p>
         )
       }
       else {
@@ -138,7 +138,15 @@ class InputForm extends Component {
       }
   };
 
+  clearHistory = () => {
+      this.setState({
+          history: []
+      });
+  };
+
   render() {
+    const historyClass = this.state.showHistory === true ? 'InputForm_history' : 'hidden';
+
     return (
         <section className='InputForm'>
             {this.state.loading === true ? 
@@ -147,10 +155,12 @@ class InputForm extends Component {
                     color="#25b8f2"
                     height={100}
                     width={100}
+                    id='loadingIcon'
                 />
                 : ''
             }
-            <p className='queryResult'>{this.state.result.answer || ''}</p>
+            {this.state.result.answer ? <h2>Magic 8-Ball Says!</h2> : ''}
+            <p id='queryResult'>{this.state.result.answer || ''}</p>
             {this.state.apiError.status === true 
                 ? <p className='errorText'>{this.state.apiError.value}</p>
                 : ''
@@ -161,7 +171,7 @@ class InputForm extends Component {
                 >
                     <section className='InputForm_formField'>
                         <label htmlFor='input'>
-                            Ask the 8-Ball!
+                            Ask the 8-Ball
                         </label>
                         <input
                             type='text'
@@ -170,7 +180,7 @@ class InputForm extends Component {
                             required
                         />
                         {this.state.inputError.status === true 
-                            ? <p id='errorText'>{this.state.inputError.value}</p> 
+                            ? <p className='errorText'>{this.state.inputError.value}</p> 
                             : ''
                         }
                     </section>
@@ -186,7 +196,10 @@ class InputForm extends Component {
                         </button>
                     </div>
                 </form>
-                <section id='InputForm_history'>
+                <section id={historyClass}>
+                    <div id='clearHistory'>
+                        <button id='clearHistoryButton' onClick={() => this.clearHistory()}>Clear history</button>
+                    </div>
                     {this.state.showHistory === true 
                         ? this.renderHistory()
                         : ''

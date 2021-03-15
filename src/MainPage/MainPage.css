@@ -1,0 +1,36 @@
+.MainPage {
+    width: 100%;
+    text-align: center;
+}
+
+.featureImage,
+#mainPageImage {
+    width: 100%;
+    position: relative;
+}
+
+#mainPageHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width:50%;
+    color: #fff;
+    font-size: 8vw;
+    text-align: left;
+    margin-left: 2vw;
+}
+
+/* desktop adjustments */ 
+@media (min-width: 1200px) {
+    .MainPage {
+        width: 80%;
+        margin: auto auto 100px auto;
+    }
+
+    #mainPageHeader {
+        width:60%;
+        font-size: 6vw;
+        margin-left: 4vw;
+    }
+}
