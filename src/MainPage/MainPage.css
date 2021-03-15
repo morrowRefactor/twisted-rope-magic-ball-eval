@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.featureImage {
+    margin-bottom: 30px;
+}
+
 #mainPageHeader {
     position: absolute;
     top: 0;

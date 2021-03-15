@@ -130,7 +130,7 @@ class InputForm extends Component {
 
       if(this.state.history.length < 1) {
         return (
-            <p className='errorText'>No history. Submit a question to the Great 8-Ball above.</p>
+            <p id='historyErrorText'>No history. Submit a question to the Great 8-Ball above.</p>
         )
       }
       else {
@@ -142,9 +142,12 @@ class InputForm extends Component {
       this.setState({
           history: []
       });
+
+      this.toggleHistory();
   };
 
   render() {
+    const resultClass = this.state.result.answer ? 'queryResult' : 'hidden';
     const historyClass = this.state.showHistory === true ? 'InputForm_history' : 'hidden';
 
     return (
@@ -160,7 +163,7 @@ class InputForm extends Component {
                 : ''
             }
             {this.state.result.answer ? <h2>Magic 8-Ball Says!</h2> : ''}
-            <p id='queryResult'>{this.state.result.answer || ''}</p>
+            <p id={resultClass}>{this.state.result.answer || ''}</p>
             {this.state.apiError.status === true 
                 ? <p className='errorText'>{this.state.apiError.value}</p>
                 : ''
@@ -192,18 +195,22 @@ class InputForm extends Component {
                         </button>
                         {' '}
                         <button type='button' onClick={() => this.toggleHistory()}>
-                            Show History
+                            {this.state.showHistory === true
+                                ? 'Hide History'
+                                : 'Show History'
+                            }
                         </button>
                     </div>
                 </form>
                 <section id={historyClass}>
-                    <div id='clearHistory'>
-                        <button id='clearHistoryButton' onClick={() => this.clearHistory()}>Clear history</button>
-                    </div>
                     {this.state.showHistory === true 
                         ? this.renderHistory()
                         : ''
                     }
+                    <div id='clearHistory'>
+                        <button className='clearHistoryButton' onClick={() => this.toggleHistory()}>Hide history</button>
+                        <button className='clearHistoryButton' onClick={() => this.clearHistory()}>Clear history</button>
+                    </div>
                 </section>
         </section>
     );

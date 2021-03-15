@@ -44,7 +44,13 @@
     color: #25b8f2;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin: auto auto 30px auto;
+    background-color: #474747;
+    border-top: 2px solid #222;
+    border-bottom: 2px solid #222;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
 }
 
 .errorText {
@@ -54,12 +60,18 @@
 }
 
 #InputForm_history {
+    position: absolute;
+    top: 30vh;
+    left: 15vw;
+    z-index: 1;
     text-align: left;
     width: 60%;
-    padding: 10px 20px 10px 20px;
+    padding: 20px 30px 20px 30px;
     margin: auto auto 50px auto;
     border: 1px solid #585858;
     border-radius: 5px;
+    background-color: rgb(177, 177, 177);
+    box-shadow: 8px 8px 2px -2px #585858;
 }
 
 .queryQuestion {
@@ -72,7 +84,6 @@
 
 .queryHeader {
     font-weight: bold;
-    color: #585858;
 }
 
 #clearHistory {
@@ -81,15 +92,19 @@
     margin-bottom: 10px;
 }
 
-#clearHistoryButton {
+.clearHistoryButton {
     border: none;
     text-decoration: underline;
-    background-color: #fff;
+    background-color: rgb(177, 177, 177);
     font-size: 14px;
 }
 
-#clearHistoryButton:hover {
+.clearHistoryButton:hover {
     cursor: pointer;
+}
+
+#historyErrorText {
+    color: #fff;
 }
 
 #hidden {
