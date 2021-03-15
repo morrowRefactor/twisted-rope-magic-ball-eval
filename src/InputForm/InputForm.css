@@ -62,7 +62,7 @@
 #InputForm_history {
     position: absolute;
     top: 30vh;
-    left: 15vw;
+    left: 10vw;
     z-index: 1;
     text-align: left;
     width: 60%;
@@ -113,12 +113,20 @@
 
 /* tablet adjustments */ 
 @media (min-width: 768px) {
-    .InputForm_formField > input {
+    .InputForm_formField > input,
+    #queryResult {
         width: 70%;
     }
 
     #InputForm_buttons > button {
         width: 40%;
+    }
+
+    #InputForm_history {
+        top: 30vh;
+        left: 25vw;
+        width: 50%;
+        padding: 20px 30px 20px 30px;
     }
 }
 
@@ -126,9 +134,21 @@
 @media (min-width: 1200px) {
     .InputForm_formField > input {
         width: 50%;
+        font-size: 18px;
     }
 
     #InputForm_buttons > button {
         width: 20%;
+    }
+
+    #queryResult {
+        width: 50%;
+    }
+
+    #InputForm_history {
+        top: 30vh;
+        left: 30vw;
+        width: 40%;
+        padding: 20px 30px 20px 30px;
     }
 }
