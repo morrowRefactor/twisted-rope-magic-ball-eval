@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Route, withRouter, Switch } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import MainPage from '../MainPage/MainPage';
+import APIContext from '../APIContext';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
   };
 
   render() {
-    contVal = {
+    const contVal = {
       loading: this.state.loading
     };
 
